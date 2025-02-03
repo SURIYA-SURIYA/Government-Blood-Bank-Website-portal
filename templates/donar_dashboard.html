@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TN Donar Dashboard | {{ donor_details[1] }}</title>
+    <link rel="icon" href="{{ url_for('static', filename='tn.png') }}" type="image/png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+        }
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #343a40;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            padding: 15px;
+            text-align: left;
+            display: block;
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+        }
+        .sidebar a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            width: 100%;
+            height:100%;
+            display: flex;
+        }
+        .content-display {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        @media screen and (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+        }
+        /* Custom Marquee Styling */
+        .emergency-marquee {
+            color: white;
+            padding: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .emergency-marquee marquee {
+            font-size: 1.25rem;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <a href="javascript:void(0);" id="view-dashboard-btn"><i class="fas fa-tachometer-alt" style="color:green;"></i> Dashboard</a>
+    <a href="javascript:void(0);" id="view-admin-btn"><i class="fas fa-user" style="color:yellow ;"></i> Donar Profile</a>
+    <a href="javascript:void(0);" id="view-donors-btn"><i class="fas fa-tint" style="color:red ;"></i> Blood Donation</a>
+    <a href="javascript:void(0);" id="view-location-btn"><i class="fas fa-map-marker-alt" style="color:skyblue;"></i> Nearby Blood Location</a>
+    <a href="/"><i class="fas fa-sign-out-alt" style="color:yellow;"></i> Logout</a>
+</div>
+
+<!-- Main Content -->
+<div class="main-content bg-success text-white">
+    <!-- Placeholder for the dynamic content -->
+    <div class="content-display" style="background:rgba(0,0,0,0.7); padding: 20px; color: white" id="content-display">
+        <div class="container">
+            <div class="row align-items-center" style="border-bottom:1px solid white;">
+                <!-- Left side: Small image -->
+                <div class="col-md-4 text-center mb-3 mb-md-0" style="border-right:white;">
+                    <img src="{{ url_for('static', filename=donor_details[3]) }}" alt="Profile Image" style="width: 150px; height: auto;">
+
+                </div>
+    
+                <!-- Right side: Text content -->
+                <div class="col-md-8 text-center">
+                    <h1>Hello {{ donor_details[1] }}, Welcome to Your Dashboard !</h1>
+                    <p>This is the official government portal for administrative management. Here you can access reports, manage users, and view the latest updates.</p>
+                </div>
+            </div>
+            <div class="row align-items-center" style="border-bottom:1px solid white; padding-bottom:10px;">
+                <!-- Left Column -->
+                <div class="col-md-6 text-left" style="border-right:1px solid white; margin-top:10px;">
+                  <h1 class="section-title">Who Can Donate Blood <i class="fas fa-tint icon-blood" style="color:red; font-size:30px;"></i> ?</h1>
+                  <div class="list-section">
+                    <ul>
+                      <li>Healthy individuals aged 18 to 65.</li>
+                      <li>People weighing more than 50 kg (110 lbs).</li>
+                      <li>Individuals who are not currently experiencing illness, fever, or infections.</li>
+                      <li>Those who haven’t recently gotten tattoos or piercings (depending on guidelines).</li>
+                      <li>**No alcohol consumption** at least 24 hours prior to donating.</li> <!-- New Point Added -->
+          
+                    </ul>
+                  </div>
+                </div>
+          
+                <!-- Right Column (Same Content) -->
+                <div class="col-md-6 text-left" style="margin-top:10px;">
+                  <h1 class="section-title">How the Process Works ?</h1>
+                  <div class="list-section">
+                    <ul>
+                      <li>Registration: You'll provide some basic information and answer a few questions about your health</li>
+                      <li>Health Check: A brief health screening will ensure you're fit to donate.</li>
+                      <li>Donation: The blood donation process itself only takes about 10-15 minutes.</li>
+                      <li>Refreshment: After donating, you can enjoy some snacks and drinks to help you recover.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="container emergency-marquee text-center bg-success" style="margin-top:20px;">
+            <marquee behavior="scroll" direction="left">
+                <i class="fas fa-tint" style="color:red;"></i> Emergency Contact Number: 1800-419-1800 or 1097 (Available 24/7)
+            </marquee>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4 text-center">
+
+            <img src="{{ url_for('static', filename='doctor.jpg') }}" alt="Profile Image" class="img-fluid rounded mb-3 border border-primary shadow" style="max-width: 100%;">
+        </div>
+
+        <div class="col-md-8 d-flex flex-column justify-content-center">
+            <header class="mb-4">
+                <h2 class="display-5 text-white text-center">Donate Your Blood</h2>
+                <p class="lead text-white">
+                    Here, you can send  your personal information. Ensure your details are up-to-date to provide the best possible service. 
+                </p>
+            </header>
+
+            <main>
+                <p class="text-white">
+                Government blood banks often collaborate with hospitals, non-profit organizations, and community groups to organize blood drives and encourage voluntary blood donation. By educating the public about the importance of regular blood donation and facilitating access to blood collection services, these facilities help ensure that life-saving blood is available in emergencies, surgeries, and for patients with chronic illnesses requiring transfusions.
+            
+                </p>
+            </main>
+
+          
+        </div>
+          
+    </div>
+    <div class="mt-4 text-center">
+            <a href="{{ url_for('Blood_Donate', donar_id=donar_id) }}" class="btn btn-success btn-lg px-5 py-2 shadow">Available</a>
+
+            </div>
+</div> -->
+<!-- Scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // When the donar profile button is clicked
+        $('#view-dashboard-btn').on('click', function() {
+            $('#content-display').html(`
+            <div class="container">
+            <div class="row align-items-center" style="border-bottom:1px solid white;">
+                <!-- Left side: Small image -->
+                <div class="col-md-4 text-center mb-3 mb-md-0" style="border-right:white;">
+                    <img src="{{ url_for('static', filename=donor_details[3]) }}" alt="Profile Image" style="width: 150px; height: auto;">
+
+                </div>
+    
+                <!-- Right side: Text content -->
+                <div class="col-md-8 text-center">
+                    <h1>Hello {{ donor_details[1] }}, Welcome to Your Dashboard !</h1>
+                    <p>This is the official government portal for administrative management. Here you can access reports, manage users, and view the latest updates.</p>
+                </div>
+            </div>
+            <div class="row align-items-center" style="border-bottom:1px solid white; padding-bottom:10px;">
+                <!-- Left Column -->
+                <div class="col-md-6 text-left" style="border-right:1px solid white; margin-top:10px;">
+                  <h1 class="section-title">Who Can Donate Blood <i class="fas fa-tint icon-blood" style="color:red; font-size:30px;"></i> ?</h1>
+                  <div class="list-section">
+                    <ul>
+                      <li>Healthy individuals aged 18 to 65.</li>
+                      <li>People weighing more than 50 kg (110 lbs).</li>
+                      <li>Individuals who are not currently experiencing illness, fever, or infections.</li>
+                      <li>Those who haven’t recently gotten tattoos or piercings (depending on guidelines).</li>
+                      <li>**No alcohol consumption** at least 24 hours prior to donating.</li> <!-- New Point Added -->
+          
+                    </ul>
+                  </div>
+                </div>
+          
+                <!-- Right Column (Same Content) -->
+                <div class="col-md-6 text-left" style="margin-top:10px;">
+                  <h1 class="section-title">How the Process Works ?</h1>
+                  <div class="list-section">
+                    <ul>
+                      <li>Registration: You'll provide some basic information and answer a few questions about your health</li>
+                      <li>Health Check: A brief health screening will ensure you're fit to donate.</li>
+                      <li>Donation: The blood donation process itself only takes about 10-15 minutes.</li>
+                      <li>Refreshment: After donating, you can enjoy some snacks and drinks to help you recover.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="container emergency-marquee text-center bg-success" style="margin-top:20px;">
+            <marquee behavior="scroll" direction="left">
+                <i class="fas fa-tint" style="color:red;"></i> Emergency Contact Number: 1800-419-1800 or 1097 (Available 24/7)
+            </marquee>
+        </div>
+                `);
+        });
+
+        // When the View Donors button is clicked
+        $('#view-donors-btn').on('click', function() {
+            $('#content-display').html(`
+                <h2 class="text-center">Blood Donation Form</h2>
+        
+        <!-- Display flash messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert alert-warning">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <form action="{{ url_for('Blood_Donate') }}" method="POST" class="needs-validation" novalidate>
+            
+            <!-- Donor Age -->
+            <div class="form-group">
+                <label for="donar_age">Age:</label>
+                <input type="number" class="form-control" id="donar_age" name="donar_age" min="18" max="65" required>
+                <div class="invalid-feedback">Please enter a valid age (18-65).</div>
+            </div>
+
+            <!-- Donation Hospital -->
+            <div class="form-group">
+                <label for="donate_hospital">Hospital Name:</label>
+                <input type="text" class="form-control" id="donate_hospital" name="donate_hospital" required>
+                <div class="invalid-feedback">Please enter the hospital name.</div>
+            </div>
+
+            <!-- Donation City -->
+            <div class="form-group">
+                <label for="donate_city">City:</label>
+                <input type="text" class="form-control" id="donate_city" name="donate_city" required>
+                <div class="invalid-feedback">Please enter the city.</div>
+            </div>
+
+            <!-- Donation Date -->
+            <div class="form-group">
+                <label for="donate_date">Donation Date:</label>
+                <input type="date" class="form-control" id="donate_date" name="donate_date"
+                       min="{{ today_date }}" max="{{ max_date }}" required>
+                <div class="invalid-feedback">Please enter a donation date.</div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-success btn-block">Submit Donation Information</button>
+        </form>
+
+            `);
+        });
+
+        // When the View Admin Profile button is clicked
+        $('#view-admin-btn').on('click', function() {
+            $('#content-display').html(`
+                <div class="container mt-5">
+        <!-- Profile Header -->
+        <div class="text-center mb-4">
+            <h1 class="mb-3">Hello, {{ donor_details[1] }}! Welcome to Your Profile</h1>
+            <img src="{{ url_for('static', filename=donor_details[3]) }}" alt="Profile Image" class="rounded-circle img-fluid" style="width: 150px;">
+        </div>
+
+       <!-- Donor Details Section -->
+<div class="card" style="background:rgba(0,0,0,0.3);">
+    <div class="card-body">
+        <h2 class="card-title text-center mb-4">Your Personal Information</h2>
+        <table class="table table-bordered table-striped text-white">
+            <thead class="thead-dark">
+                <tr>
+                    <td><i class="fas fa-map-marker-alt mr-2 text-primary"></i> Address</td>
+                    <td><i class="fas fa-key mr-2 text-primary"></i> Password</td>
+                    <td><i class="fas fa-envelope mr-2 text-primary"></i> Email</td>
+                    <td><i class="fas fa-id-card mr-2 text-primary"></i> Aadhar</td>
+                    <td><i class="fas fa-phone mr-2 text-primary"></i> Mobile No</td>
+                    <td><i class="fas fa-venus-mars mr-2 text-primary"></i> Gender</td>
+                    <td><i class="fas fa-tint mr-2 text-primary"></i> Blood Group</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ donor_details[4] }}</td>                
+                    <td>{{ donor_details[5] }}</td>                
+                    <td>{{ donor_details[2] }}</td>                
+                    <td>{{ donor_details[6] }}</td>
+                    <td>{{ donor_details[7] }}</td>              
+                    <td>{{ donor_details[8] }}</td>
+                    <td>{{ donor_details[9] }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div class="text-center" style="margin-top:50px;">
+                <a href="{{ url_for('donar_update', donar_id=donor_details[0]) }}" class="btn btn-success">Profile Update</a>
+
+                </div>
+            `);
+        });
+
+        // When the Nearby Location button is clicked
+        $('#view-location-btn').on('click', function() {
+            $('#content-display').html(`
+         <h2 class="text-center text-white">Search Nearby Blood Location</h2>
+        <form action="{{ url_for('location_search') }}" method="POST" class="mb-4">
+            <div class="form-group text-white">
+                <label for="search">Location Name (City) :</label>
+                <div class="input-group">
+                    <input type="text" id="search" name="search" class="form-control" placeholder="Enter location name" required>
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-success">Search</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        {% if items %}
+            <h3 class="text-white">Search Results </h3>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr class="table-success">
+                        <th>Location Name</th>
+                        <th>Hospital Name</th>
+                        <th>Hospital Contact</th>
+                        <th>Location Address</th>
+                    </tr>
+                </thead>
+                <tbody class="text-white">
+                    {% for item in items %}
+                        <tr>
+                            <td>{{ item[1] }}</td>
+                            <td>{{ item[2] }}</td>
+                            <td>{{ item[3] }}</td>
+                            <td>{{ item[4] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% elif items is not none %}
+            <p class="text-danger">No results found for your search.</p>
+        {% endif %}
+                `);
+        });
+
+    });
+</script>
+
+</body>
+</html>

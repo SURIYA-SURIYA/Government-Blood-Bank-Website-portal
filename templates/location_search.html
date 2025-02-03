@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Search</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2, h3 {
+            color: #343a40;
+        }
+        .form-control {
+            border-radius: 25px;
+        }
+        .btn {
+            border-radius: 25px;
+        }
+        table {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body class="bg-success">
+    <div class="container mt-5" style="background:rgba(0,0,0,0.7);">
+        <h2 class="text-center text-white">Search Nearby Blood Location</h2>
+        <form action="{{ url_for('location_search') }}" method="POST" class="mb-4">
+            <div class="form-group text-white">
+                <label for="search">Location Name (City) :</label>
+                <div class="input-group">
+                    <input type="text" id="search" name="search" class="form-control" placeholder="Enter location name" required>
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-success">Search</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        {% if items %}
+            <h3 class="text-white">Search Results </h3>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr class="table-success">
+                        <th>Location Name</th>
+                        <th>Hospital Name</th>
+                        <th>Hospital Contact</th>
+                        <th>Location Address</th>
+                    </tr>
+                </thead>
+                <tbody class="text-white">
+                    {% for item in items %}
+                        <tr>
+                            <td>{{ item[1] }}</td>
+                            <td>{{ item[2] }}</td>
+                            <td>{{ item[3] }}</td>
+                            <td>{{ item[4] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% elif items is not none %}
+            <p class="text-danger">No results found for your search.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

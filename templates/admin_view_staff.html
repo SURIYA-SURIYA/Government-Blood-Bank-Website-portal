@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin View Staff</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> <!-- Link to custom stylesheet if you have one -->
+</head>
+<body class="bg-success">
+    <div class="container my-5" style="background:rgba(0,0,0,0.7); padding:20px; border-radius:10px;">
+        <h1 class="text-center text-white mb-4">Staff Overview</h1>
+        <div class="text-right my-3">
+            <a href="/adminHome" class="btn btn-secondary">Dashboard</a>
+        </div>
+        {% if datas %}
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Branch ID</th>
+                            <th>Branch Name</th>
+                            <th>Staff Name</th>
+                            <th>Email</th>
+                            <th>Mobile No</th>
+                            <th>District</th>
+                            <th>Password</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-white">
+                        {% for branch in datas %}
+                            <tr>
+                                <td>{{ branch[0] }}</td>
+                                <td>{{ branch[1] }}</td>
+                                <td>{{ branch[2] }}</td>
+                                <td>{{ branch[3] }}</td>
+                                <td>{{ branch[4] }}</td>
+                                <td>{{ branch[5] }}</td>
+                                <td>{{ branch[6] }}</td>
+
+                                <td>
+                                    <a href="/delete_staff/{{ branch[0] }}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this branch?');">
+                                        Delete
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <p class="text-center">No branch data available.</p>
+        {% endif %}
+        <div class="text-right my-3">
+            <a href="/adminHome" class="btn btn-secondary">Dashboard</a>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap JavaScript (for responsive behavior) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

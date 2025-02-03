@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TN | Blood Bank Portal</title>
+    <link rel="icon" href="./static/tn.png" type="image/png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* Custom styling for h2 */
+        .navbar h2 {
+            text-align: center;
+            font-size: 24px;
+            color: #000;
+            font-weight: bold;
+        }
+
+        /* Responsive typography for h2 */
+        @media (max-width: 768px) {
+            .navbar h2 {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar h2 {
+                font-size: 16px;
+            }
+        }
+
+        /* Styling for images */
+        .nav-image {
+            width: 70px;
+            height: 70px;
+        }
+
+        .hero-image {
+            max-width: 200px;
+            margin: 0;
+        }
+
+        /* Custom Marquee Styling */
+        .emergency-marquee {
+            color: white;
+            padding: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .emergency-marquee marquee {
+            font-size: 1.25rem;
+            font-weight: normal;
+        }
+
+        .emergency-icon {
+            color: red;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .emergency-marquee {
+                font-size: 1.2rem;
+            }
+
+            .emergency-marquee marquee {
+                font-size: 1rem;
+            }
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            font-family: Arial, sans-serif;
+        }
+        .footer h5 {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+        }
+        .footer p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .footer a {
+            color: #bbb;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .footer a:hover {
+            color: #fff;
+        }
+        .footer .social-icons a {
+            font-size: 1.2rem;
+            margin: 0 10px;
+            color: #bbb;
+        }
+        .footer .social-icons a:hover {
+            color: #fff;
+        }
+        .footer .recent-news img {
+            width: 70px;
+            height: 70px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .footer .copyright {
+            font-size: 0.8rem;
+            text-align: center;
+            padding-top: 10px;
+            color: #aaa;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <!-- Navbar Section -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#">
+                <img src="{{ url_for('static', filename='tn.png') }}" alt="Logo" class="nav-image">
+            </a>
+            <!-- Title -->
+            <h2 class="navbar-brand mx-auto text-dark">தமிழ்நாடு அரசு ரத்த வங்கி
+                <i class="fas fa-tint emergency-icon"></i>
+            </h2>
+
+            <!-- Toggler button for mobile view -->
+            <button class="navbar-toggler bg-success text-white" type="button" data-toggle="collapse"
+                data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="/About">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="/admin">Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="/staff_login">Branches</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="/Donar">Donor</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="/recipient">Recipients</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Top Content -->
+    <div class="container-fluid p-0 bg-success">
+        <div class="row align-items-center no-gutters">
+            <!-- Left side image -->
+            <div class="col-md-4 text-center">
+                <img src="{{ url_for('static', filename='cm.png') }}" alt="Left Image" class="hero-image img-fluid">
+            </div>
+
+            <!-- Center paragraph -->
+            <div class="col-md-4 text-center">
+                <p class="my-2 text-white">
+                    தமிழ்நாடு அரசு இரத்த வங்கிக்கு வரவேற்கிறோம் | இரத்த வலை போர்டல் தேவைப்பட்டால் இரத்த தானம் செய்வதையோ அல்லது இரத்தத்தைப் பெறுவதையோ பரிசீலிக்கவும்.
+                    
+                </p>
+            </div>
+
+            <!-- Right side image -->
+            <div class="col-md-4 text-center">
+                <img src="{{ url_for('static', filename='blood.png') }}" alt="Right Image" class="hero-image img-fluid">
+            </div>
+        </div>
+    </div>
+<!-- Top Content -->
+
+
+    <!-- View Blood Content -->
+    <div class="container-fluid d-flex justify-content-center align-items-center"
+        style="background-image: url('{{ url_for('static', filename='doctor1.jpeg') }}'); background-size: cover; height: 80vh;">
+        <div class="w-100 text-center text-white p-4" style="opacity: 0.9; background:rgba(0,0,0,0.7);">
+            <p class="mb-4" style="text-align:justify;">
+                A blood bank is a vital facility that ensures a steady and safe supply of blood for patients in need. Blood banks collect, test, store, and distribute blood and its components, such as plasma and platelets, for transfusions. Donated blood helps save lives in emergencies, during surgeries, and for individuals with medical conditions like cancer, anemia, or severe trauma. Maintaining an adequate blood supply is crucial to healthcare systems, and blood banks rely heavily on regular, voluntary donations from healthy individuals. By donating blood, you can contribute directly to saving lives and supporting the health of your community.
+
+            </p>
+            <a href="recipient" class="btn btn-success btn-lg">Recipients</a>
+        </div>
+    </div>
+
+    <!-- Our Mission -->
+    <div class="container-fluid bg-success text-white py-5">
+        <h2 class="text-center text-white font-weight-bold" style="padding:20px;">தமிழ்நாட்டில் உள்ள இரத்த வங்கி வசதிகள் பற்றிய கண்ணோட்டம்</h2>
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <img src="{{ url_for('static', filename='gh.jpeg') }}" alt="Image" class="img-fluid">
+            </div>
+            <div class="col-md-8">
+                <p style="text-align:justify;">
+                    தமிழ்நாடு அரசு மற்றும் தனியார் இரத்த வங்கிகளின் வலுவான வலையமைப்பைக் கொண்டுள்ளதுஇ மாநிலம் முழுவதும் முக்கியமான இரத்த விநியோகத்தை உறுதி செய்கிறது. ராஜீவ் காந்தி அரசு பொது மருத்துவமனைஇ அரசு ராஜாஜி மருத்துவமனை மற்றும் சென்னையில் உள்ள தமிழ்நாடு மல்டி சூப்பர் ஸ்பெஷாலிட்டி மருத்துவமனை போன்ற முக்கிய மருத்துவமனைகள் 24/7 இரத்த வங்கி வசதிகளை வழங்குகின்றன. இந்த இரத்த வங்கிகள் அவசரநிலைகளைக் கையாளவும்இ இரத்த தட்டச்சுஇ சேமிப்பு மற்றும் பரிசோதனை சேவைகளை வழங்கவும்இ தன்னார்வ இரத்த தானம் செய்வதை ஊக்குவிக்கும் வகையில் தமிழ்நாடு இரத்த கொடையாளர்கள் நெட்வொர்க்குடன் இணைக்கப்பட்டுள்ளன. அரசாங்கம் அடிக்கடி இரத்த தான முகாம்களை ஏற்பாடு செய்துஇ அனைத்து குடிமக்களுக்கும் அணுகக்கூடிய மற்றும் திறமையான இரத்த விநியோக முறையை உறுதி செய்கிறது.
+                    கூடுதலாகஇ தமிழ்நாட்டின் இரத்த வங்கிகள் மேம்பட்ட சேமிப்பு தொழில்நுட்பத்தைப் பயன்படுத்துகின்றனஇ பாதுகாப்பான இரத்தமாற்றங்களை செயல்படுத்துகின்றன மற்றும் மாநிலம் முழுவதும் அரிதான இரத்த வகைகளை திறம்பட நிர்வகிக்கின்றன.
+
+                    </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Our Vision -->
+    <div class="container-fluid bg-white text-dark py-5">
+        <h2 class="text-center font-weight-bold">Our Vision</h2>
+        <div class="row">
+            <div class="col-md-8">
+                <p style="text-align:justify;">
+                    At the Government Blood Bank, our vision is to create a world where every individual has access to safe and sufficient blood when needed. We aspire to be a leader in the field of blood donation and transfusion services, setting the standard for excellence and compassion in healthcare.
+                We aim to cultivate a strong culture of voluntary blood donation within our communities. By inspiring individuals to contribute to the health and well-being of others, we hope to increase the number of regular donors and raise awareness about the importance of blood donation.
+                Our vision is to ensure a safe, reliable, and equitable supply of blood and blood components for all citizens in need. We strive to foster a culture of voluntary blood donation, promote public awareness, and leverage advanced technology to streamline blood donation, storage, and distribution processes.
+                </p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img src="{{ url_for('static', filename='doctor2.jpg') }}" alt="Image" class="img-fluid">
+            </div>
+        </div>
+    </div>
+
+    <!-- Marquee Section -->
+    <div class="container-fluid bg-success my-4">
+        <div class="emergency-marquee text-center text-white">
+            <marquee behavior="scroll" direction="left">
+                <i class="fas fa-tint emergency-icon"></i> Emergency Contact Number: 1800-419-1800 or 1097 (Available
+                24/7)    |   அவசர தொடர்பு எண் : 1800-419-1800 அல்லது 1097 (Available  24/7)
+            </marquee>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>About Divinector</h5>
+                    <p class="text-justify">தமிழ்நாடு அரசு இரத்த வங்கிக்கு வரவேற்கிறோம் | இரத்த வலை போர்டல் தேவைப்பட்டால் இரத்த தானம் செய்வதையோ அல்லது இரத்தத்தைப் பெறுவதையோ பரிசீலிக்கவும்.                        !</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <h5>Support</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Donor</a></li>
+                        <li><a href="#">Recipients</a></li>
+                        <li><a href="#">Sitemaps</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Our Contact</h5>
+                    <p><i class="fas fa-phone" style="color:blue;"></i> +123456789</p>
+                    <p><i class="fas fa-envelope" style="color:yellow;"></i> tngov@domain.com</p>
+                    <p><i class="fas fa-map-marker-alt" style="color:skyblue;"></i> 321, Westwood Lane, Chennai</p>
+                    <p><i class="fas fa-globe" style="color:green;"></i> www.tngov.com</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Recent News</h5>
+                    <div class="recent-news d-flex">
+                        <img src="{{ url_for('static', filename='tn.png') }}" alt="News 1">
+                        <img src="{{ url_for('static', filename='tnmap.png') }}" alt="News 2">
+                        <img src="{{ url_for('static', filename='cm.png') }}" alt="News 3">
+                        <img src="{{ url_for('static', filename='gh.jpeg') }}" alt="News 4">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container bg-success">
+            <div class="row">
+                <div class="col-12 text-center text-white copyright">
+                    © 2024, All Rights Reserved
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

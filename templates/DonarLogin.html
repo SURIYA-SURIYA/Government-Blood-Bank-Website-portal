@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Login | Blood Bank Portal</title>
+    <link rel="icon" href="./static/tn.png" type="image/png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* Custom Marquee Styling */
+        .emergency-marquee {
+            color: white;
+            padding: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .emergency-marquee marquee {
+            font-size: 1.25rem;
+        }
+
+        /* Styling the Login Container */
+        .login-container {
+            margin-top: 80px;
+            max-width: 500px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #28a745;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        /* Button Hover Effects */
+        .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+
+        .register-btn {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .register-btn a {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .register-btn a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Typography */
+        @media (max-width: 768px) {
+            .emergency-marquee {
+                font-size: 1.2rem;
+            }
+
+            .emergency-marquee marquee {
+                font-size: 1rem;
+            }
+
+            .login-container {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .emergency-marquee {
+                font-size: 1rem;
+            }
+
+            .emergency-marquee marquee {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body style="min-height: 100vh; background-image: url('{{ url_for('static', filename='doctor2.jpg') }}'); background-size: cover; height: auto;">
+
+    <!-- Marquee Section for Emergency Number -->
+    <div class="container-fluid emergency-marquee text-center bg-success">
+        <marquee behavior="scroll" direction="left">
+            <i class="fas fa-tint" style="color:red;"></i> Emergency Contact Number: 1800-419-1800 or 1097 (Available 24/7)
+        </marquee>
+    </div>
+
+    <!-- Login Form Section -->
+    <div class="container-fluid d-flex justify-content-center align-items-center" >
+        <div class="login-container">
+            <h2>Donor Login</h2>
+            <form action="/Donar" method="POST">
+                <div class="form-group">
+                    <label for="email">Email address:</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Enter your password" required>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                    <label class="form-check-label" for="rememberMe">Remember me</label>
+                </div>
+                <input type="submit" class="btn btn-success" value="Login">
+
+            </form>
+            <div class="register-btn">
+                <p>Don't have an account? <a href="/Donar_register">Register Here</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript to handle Remember Me functionality -->
+    <script>
+       
+    </script>
+
+    <!-- JavaScript Links -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

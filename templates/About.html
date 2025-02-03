@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TN | Blood About</title>
+
+    <link rel="icon" href="./static/tn.png" type="image/png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Custom styling for h2 */
+        .navbar h2 {
+            text-align: center;
+            font-size: 24px;
+            color: #000;
+            font-weight: bold;
+        }
+
+        /* Responsive typography for h2 */
+        @media (max-width: 768px) {
+            .navbar h2 {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar h2 {
+                font-size: 16px;
+            }
+        }
+
+        /* Styling for images */
+        .nav-image {
+            width: 70px;
+            height: 70px;
+        }
+
+        .hero-image {
+            max-width: 200px;
+            margin: 0;
+        }
+        /* tn culture */
+        .img-container {
+            max-width: 100%;
+            height: auto; /* Maintain aspect ratio */
+            margin: 15px 0; /* Margin above and below the image */
+        }
+
+        .mission-title {
+            padding: 15px 0; /* Padding above and below the title */
+            font-weight: bold; /* Bold title */
+            color: white; /* White text color for the title */
+        }
+
+        .mission-description {
+            line-height: 1.6; /* Improved readability */
+            color: white; /* White text color for the paragraph */
+        }
+
+        /* Remove default bullet points from lists */
+        ul {
+            list-style-type: none; /* Remove bullets */
+            padding: 0; /* Remove default padding */
+        }
+
+        /* Marquee */
+        .emergency-marquee {
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .emergency-icon {
+            color: red;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .emergency-marquee {
+                font-size: 1.2rem;
+            }
+
+            .emergency-marquee marquee {
+                font-size: 1rem;
+            }
+
+            .mission-title {
+                font-size: 1.5rem; /* Reduce title size on small screens */
+            }
+
+            .mission-description {
+                font-size: 0.9rem; /* Reduce paragraph size for better readability */
+            }
+        }
+         /*Footer*/   
+         .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            font-family: Arial, sans-serif;
+        }
+        .footer h5 {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+        }
+        .footer p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .footer a {
+            color: #bbb;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .footer a:hover {
+            color: #fff;
+        }
+        .footer .social-icons a {
+            font-size: 1.2rem;
+            margin: 0 10px;
+            color: #bbb;
+        }
+        .footer .social-icons a:hover {
+            color: #fff;
+        }
+        .footer .recent-news img {
+            width: 70px;
+            height: 70px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .footer .copyright {
+            font-size: 0.8rem;
+            text-align: center;
+            padding-top: 10px;
+            color: #aaa;
+        }
+        
+        /*Footer*/
+    </style>
+</head>
+
+<body>
+     <!-- Navbar Section -->
+ <nav class="navbar navbar-expand-lg navbar-light ">
+    <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand" href="#">
+            <img src="{{ url_for('static', filename='cm.png') }}" alt="Logo" class="nav-image">
+        </a>
+        <!-- Title -->
+        <h2 class="navbar-brand mx-auto text-dark">தமிழ்நாடு அரசு ரத்த வங்கி
+            <i class="fas fa-tint emergency-icon" style="color:red;"></i>
+        </h2>
+
+        <!-- Toggler button for mobile view -->
+        <button class="navbar-toggler bg-success text-white" type="button" data-toggle="collapse"
+            data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="/">Home</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    <!-- Marquee -->
+    <div class="container-fluid my-4 bg-success">
+        <div class="emergency-marquee text-center text-white">
+            <marquee behavior="scroll" direction="left">
+                <i class="fas fa-tint emergency-icon"></i>
+                Emergency Contact Number: 1800-419-1800 or 1097 (Available 24/7)
+            </marquee>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="py-3 py-md-5 text-white" style="background-image: url('{{ url_for('static', filename='doctor1.jpeg') }}'); background-size: cover; height: auto;">
+        <div class="container" style="background: rgba(0, 0, 0, 0.7); padding: 20px;">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-6 mb-3 mb-md-0">
+                    <img class="img-fluid rounded img-container" loading="lazy" src="{{ url_for('static', filename='doctor.jpg') }}" alt="About 1">
+                </div>
+                <div class="col-12 col-md-6">
+                    <h2 class="mb-3">Who Can Donate Blood
+                        <i class="fas fa-tint emergency-icon" style="color:red;"></i>
+                    </h2>
+                    <p class="mb-4" style="text-align:justify;">
+                        To donate blood, individuals typically must be at least 16 or 17 years old, depending on local regulations, with some blood banks allowing 16-year-olds to donate with parental consent. Donors should be in good health at the time of donation, meaning they should not have any acute illnesses, infections, or chronic health conditions that could affect the donation process. A minimum weight of 110 pounds (50 kg) is often required to ensure the donor can safely give blood without adverse effects. Additionally, it is advised to avoid alcohol for at least 24 hours prior to donating, as alcohol consumption can lead to dehydration and affect both the quality of the blood collected and the donor’s recovery.
+                    </p>
+                    <h2 class="h4 mb-3">Avoid Alcohol Before Donation</h2>
+                    <p class="text-white mb-4">Donors are advised to avoid alcohol for at least 24 hours prior to donating blood.</p>
+                    <h2 class="h4 mb-3">Healthy Lifestyle</h2>
+                    <p class="text-white mb-0">Donors should maintain a healthy lifestyle, including a balanced diet, regular exercise, and adequate hydration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chief Minister Comprehensive Health Insurance Scheme Section -->
+    <div class="container-fluid bg-success text-dark py-4">
+        <h2 class="text-center mission-title">Chief Minister Comprehensive Health Insurance Scheme (CMCHIS)</h2>
+        <div class="row">
+            <!-- Left side: Paragraph -->
+            <div class="col-12 col-md-8 mb-4">
+                
+                <h4 class="mission-description text-left mt-4" style="text-align:left;">
+                    Benefits And Features Of Chief Minister's Comprehensive Health Insurance Scheme
+                </h4>
+                <ul class="text-white">
+                    <li>Comprehensive Medical Emergency Coverage</li>
+                    <li>Broad Hospital Network</li>
+                    <li>Complete Coverage Across A Range Of Treatments</li>
+                    <li>High Sum Insured</li>
+                    <li>Protection Against Additional Medical Treatments</li>
+                </ul>
+                <h4 class="mission-description text-left" style="text-align:left;">
+                    Features Of Chief Minister's Comprehensive Health Insurance Scheme
+                </h4>
+                <ul class="text-white">
+                    <li>Pay Online Claims</li>
+                    <li>24/7 support</li>
+                    <li>Family-floater plan</li>
+                </ul>
+                <h4 class="mission-description text-left" style="text-align:left;">
+                    Apply For Chief Minister's Comprehensive Health Insurance Scheme
+                </h4>
+                <div class="text-center mb-4"> <!-- Centering the button -->
+                    <a href="#" class="btn btn-primary btn-lg">Apply For Health Insurance Scheme </a>
+                </div>
+            </div>
+            
+            <!-- Right side: Image with margin space -->
+            <div class="col-12 col-md-4 mb-4 text-center">
+                <img src="{{ url_for('static', filename='tn.png') }}" alt="Image" class="img-container img-fluid">
+            </div>
+        </div>
+    </div>           
+ <!-- Right side: Image with margin space -->
+
+<!-- Contact Form -->
+ <section id="contact" class="py-5" style="background-image: url('{{ url_for('static', filename='doctor2.jpg') }}'); background-size: cover; height: auto;">
+    <div class="container text-white" style="background: rgba(0, 0, 0, 0.7); padding: 20px;">
+        <div class="row">
+            <!-- Contact Information -->
+            <div class="col-md-6 text-white">
+                <h3>Contact Information</h3>
+                <p><strong>Address:</strong> 1234 Street Name, City, State, ZIP</p>
+                <p><strong>Phone:</strong> (123) 456-7890</p>
+                <p><strong>Email:</strong> [email protected]</p>
+            </div>
+            <!-- Contact Form -->
+            <div class="col-md-6">
+                <h3>Get in Touch</h3>
+                <form action="contact.php" method="post">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer Section with Image -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h5>About Divinector</h5>
+                <p class="text-justify">தமிழ்நாடு அரசு இரத்த வங்கிக்கு வரவேற்கிறோம் | இரத்த வலை போர்டல் தேவைப்பட்டால் இரத்த தானம் செய்வதையோ அல்லது இரத்தத்தைப் பெறுவதையோ பரிசீலிக்கவும்.                        !</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <h5>Support</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Donor</a></li>
+                    <li><a href="#">Recipients</a></li>
+                    <li><a href="#">Sitemaps</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Our Contact</h5>
+                <p><i class="fas fa-phone" style="color:blue;"></i> +123456789</p>
+                <p><i class="fas fa-envelope" style="color:yellow;"></i> tngov@domain.com</p>
+                <p><i class="fas fa-map-marker-alt" style="color:skyblue;"></i> 321, Westwood Lane, Chennai</p>
+                <p><i class="fas fa-globe" style="color:green;"></i> www.tngov.com</p>
+            </div>
+            <div class="col-md-3">
+                <h5>Recent News</h5>
+                <div class="recent-news d-flex">
+                    <img src="{{ url_for('static', filename='tn.png') }}" alt="News 1">
+                    <img src="{{ url_for('static', filename='tnmap.png') }}" alt="News 2">
+                    <img src="{{ url_for('static', filename='cm.png') }}" alt="News 3">
+                    <img src="{{ url_for('static', filename='gh.jpeg') }}" alt="News 4">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container bg-success">
+        <div class="row">
+            <div class="col-12 text-center text-white copyright">
+                © 2024, All Rights Reserved
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
